@@ -1,6 +1,8 @@
-x = require('./serial');
+Serial = require('./serial');
 
 function work() {
+
+	// echo whatever is typed to serial port
 	var readline = require('readline');
 	var r = readline.createInterface({
 		input: process.stdin,
@@ -16,7 +18,7 @@ function work() {
 }
 
 
-i = new x(function () {
+i = new Serial(function openCallback() {
 	i.write("AT\r");
 	work();
 });
